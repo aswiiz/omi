@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Omi Web - AI Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="smartwatch-mode">
+    <div class="app-container">
+        <!-- AI Background Animation -->
+        <div class="ai-bg">
+            <div class="orb"></div>
+            <div class="glow"></div>
+        </div>
+
+        <!-- Main Interface -->
+        <main class="viewport">
+            <header class="status-bar">
+                <div class="left-status">
+                    <span id="time">12:00</span>
+                    <span id="connection-status" class="status-badge offline">Offline</span>
+                </div>
+                <div class="battery-indicator">
+                    <span id="battery-level">--%</span>
+                </div>
+            </header>
+
+            <div class="content-area" id="chat-container">
+                <div class="welcome-screen" id="welcome">
+                    <div class="ai-avatar">
+                        <div class="wave-container">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                        <span class="ai-label">AI</span>
+                    </div>
+                    <h1>How can I help?</h1>
+                </div>
+                <!-- Chat messages will be injected here -->
+            </div>
+
+            <footer class="controls">
+                <button id="mic-btn" class="mic-button" aria-label="Start Listening">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                        <line x1="12" y1="19" x2="12" y2="23"></line>
+                        <line x1="8" y1="23" x2="16" y2="23"></line>
+                    </svg>
+                </button>
+                <div id="listening-indicator" class="hidden">
+                    <span>Listening...</span>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Hidden audio element for TTS -->
+    <audio id="tts-audio" class="hidden"></audio>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
