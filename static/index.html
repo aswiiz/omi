@@ -19,6 +19,11 @@
 
         <!-- Main Interface -->
         <main class="viewport">
+            <nav class="app-nav">
+                <button id="nav-chat" class="nav-btn active">Chat</button>
+                <button id="nav-memory" class="nav-btn">Memories</button>
+            </nav>
+
             <header class="status-bar">
                 <div class="left-status">
                     <span id="time">12:00</span>
@@ -29,30 +34,53 @@
                 </div>
             </header>
 
-            <div class="content-area" id="chat-container">
-                <div class="welcome-screen" id="welcome">
-                    <div class="ai-avatar">
-                        <div class="wave-container">
-                            <div class="wave"></div>
-                            <div class="wave"></div>
-                            <div class="wave"></div>
-                        </div>
-                        <span class="ai-label">AI</span>
-                    </div>
-                    <h1>How can I help?</h1>
+            <!-- Chat View -->
+            <div class="content-area view-active" id="chat-view">
+                <div id="transcription-display" class="transcription-overlay hidden">
+                    <span class="pulse-dot"></span>
+                    <span id="live-transcript"></span>
                 </div>
-                <!-- Chat messages will be injected here -->
+                <div id="chat-container">
+                    <div class="welcome-screen" id="welcome">
+                        <div class="ai-avatar">
+                            <div class="wave-container">
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                                <div class="wave"></div>
+                            </div>
+                            <span class="ai-label">AI</span>
+                        </div>
+                        <h1>How can I help?</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory View -->
+            <div class="content-area hidden" id="memory-view">
+                <div id="memory-list" class="memory-list">
+                    <!-- Memories will be injected here -->
+                    <div class="empty-state">No memories yet. Start a conversation!</div>
+                </div>
             </div>
 
             <footer class="controls">
-                <button id="mic-btn" class="mic-button" aria-label="Start Listening">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-                        <line x1="12" y1="19" x2="12" y2="23"></line>
-                        <line x1="8" y1="23" x2="16" y2="23"></line>
-                    </svg>
-                </button>
+                <div class="mic-section">
+                    <button id="mic-btn" class="mic-button" aria-label="Start Listening">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <line x1="12" y1="19" x2="12" y2="23"></line>
+                            <line x1="8" y1="23" x2="16" y2="23"></line>
+                        </svg>
+                    </button>
+                    <div class="mode-toggle">
+                        <label class="switch">
+                            <input type="checkbox" id="continuous-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="mode-label">Continuous</span>
+                    </div>
+                </div>
                 <div id="listening-indicator" class="hidden">
                     <span>Listening...</span>
                 </div>
